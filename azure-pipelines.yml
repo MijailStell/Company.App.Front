@@ -1,0 +1,21 @@
+trigger:
+- master
+
+pool:
+  name: DevOps
+  demands: npm
+
+steps:
+- task: Npm@0
+  displayName: 'npm install'
+  inputs:
+    cwd: front
+
+- task: Npm@0
+  displayName: 'npm build'
+  inputs:
+    cwd: front
+    command: run
+    arguments: 'build --prod'
+
+
