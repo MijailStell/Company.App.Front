@@ -5,17 +5,31 @@ pool:
   name: DevOps
   demands: npm
 
+variables:
+  artifactName: 'front'
+
 steps:
+- script: cd '$(artifactName)'
+  displayName: Set base directory
 - task: Npm@0
   displayName: 'npm install'
   inputs:
-    cwd: front
+    cwd: '$(artifactName)'
 
 - task: Npm@0
   displayName: 'npm build'
   inputs:
-    cwd: front
+    cwd: '$(artifactName)'
     command: run
     arguments: 'build --prod'
 
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'SonarQube'
+    scannerMode: CLI
+    configFile: sonar-project.properties
+
+- task: SonarQubeAnalyze@4
+
+- task: SonarQubePublish@4
 
