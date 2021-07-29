@@ -9,7 +9,7 @@ variables:
   artifactName: 'front'
 
 steps:
-- script: cd '$(artifactName)'
+- script: cd $(artifactName)
   displayName: Set base directory
 - task: Npm@0
   displayName: 'npm install'
