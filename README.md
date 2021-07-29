@@ -1,5 +1,4 @@
 # Company.App.Front
-```
 
 ##  -------  Git and manage Code  -------
 
@@ -106,3 +105,4 @@ git push -u origin master
 - task: SonarQubePublish@4
 
 #Guardar y ejecutar. Se realizará la CI en azuredevops.
+```
